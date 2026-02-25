@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Anders Eriksson</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f0f0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+        }
+        
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            position: relative;
+            page-break-after: always;
+        }
+        
+        .page:last-child {
+            page-break-after: auto;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #8B9FB3 0%, #7B8FA8 100%);
+            color: white;
+            padding: 30px 40px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        
+        .header-content h1 {
+            font-size: 2.2em;
+            margin-bottom: 5px;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+        
+        .contact-info p {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info strong {
+            margin-right: 8px;
+        }
+        
+        .content {
+            padding: 30px 40px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 1.5em;
+            color: #6B8FA8;
+            border-bottom: 3px solid #6B8FA8;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .target-box {
+            background: #f5f5f5;
+            padding: 12px;
+            border-left: 5px solid #6B8FA8;
+            margin-bottom: 15px;
+            font-style: italic;
+            line-height: 1.6;
+        }
+        
+        .job-entry {
+            margin-bottom: 18px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .job-entry:last-child {
+            border-bottom: none;
+        }
+        
+        .job-title {
+            font-size: 1.05em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        
+        .job-details {
+            color: #6B8FA8;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+        
+        .job-description {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+        
+        .education-entry {
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .education-entry:last-child {
+            border-bottom: none;
+        }
+        
+        .education-title {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.0em;
+        }
+        
+        .education-school {
+            color: #6B8FA8;
+            font-size: 0.95em;
+            margin-top: 3px;
+        }
+        
+        .education-year {
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 3px;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .skills-list {
+            list-style: none;
+        }
+        
+        .skills-list li {
+            padding: 8px 0;
+            color: #555;
+            border-bottom: 1px solid #f0f0f0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .skills-list li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #6B8FA8;
+        }
+        
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .interest-tag {
+            background: #6B8FA8;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: 210mm;
+                min-height: 297mm;
+                page-break-after: always;
+            }
+            
+            .page:last-child {
+                page-break-after: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content h1 {
+                font-size: 1.8em;
+            }
+        }
+        
+        .divider {
+            text-align: center;
+            color: #999;
+            margin: 30px 0;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sida 1 -->
+        <div class="page">
+            <div class="header">
+                <img src="Anders.jpg" alt="Anders Eriksson" class="profile-photo">
+                <div class="header-content">
+                    <h1>ANDERS ERIKSSON</h1>
+                    <div class="contact-info">
+                        <p><strong>📧</strong> anders.hblswe@gmail.com</p>
+                        <p><strong>📱</strong> 070-362 59 69</p>
+                        <p><strong>🔢</strong> Pnr: 7105310416</p>
+                        <p><strong>📍</strong> Gröna vägen 14, 313 32 Oskarström</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content">
+                <!-- Målsättning -->
+                <div class="section">
+                    <h2 class="section-title">Målsättning</h2>
+                    <div class="target-box">
+                        Jag brinner för att leverera service och med min nyfikenhet och positiva energi, bidra till andra människors nytta och glädje! Mitt mål är att under min livstid bli mitt bästa jag och få så många människor som möjligt att känna sig sedda och må lite bättre 😊
+                    </div>
+                </div>
+                
+                <!-- Arbetslivserfarenhet -->
+                <div class="section">
+                    <h2 class="section-title">Arbetslivserfarenhet</h2>
+                    
+                    <div class="job-entry">
+                        <div class="job-title">Jorden runt resa</div>
+                        <div class="job-details">2023 - 2024</div>
+                    </div>
+                    
+                    <div class="job-entry">
+                        <div class="job-title">Fastighetsförvaltare och kundvärd</div>
+                        <div class="job-details">Skeppsuddens kursgård | 2019 - 2022</div>
+                    </div>
+                    
+                    <div class="job-entry">
+                        <div class="job-title">Behandlingsassistent</div>
+                        <div class="job-details">SiS, LVM-hem | 2019</div>
+                    </div>
+                    
+                    <div class="job-entry">
+                        <div class="job-title">Life Coach</div>
+                        <div class="job-details">Eget AB | 2014 - 2020</div>
+                        <div class="job-description">Efter att ha jobbat mycket med mig själv så växte det fram en längtan att hjälpa andra. Tog ett beslut att starta eget inom Life coaching.</div>
+                    </div>
+                    
+                    <div class="job-entry">
+                        <div class="job-title">Driftchef Arlanda</div>
+                        <div class="job-details">Coor | 2012 - 2013</div>
+                    </div>
+                    
+                    <div class="job-entry">
+                        <div class="job-title">Tjänsteutvecklare Fastighet</div>
+                        <div class="job-details">Coor | 2005 - 2012</div>
+                        <div class="job-description">På Coor ansvarade jag för utveckling och implementering av företagets fastighetsleverans med 9 000 anställda och en omsättning på 9 mdr kr.</div>
+                    </div>
+                    
+                    <div class="job-entry">
+                        <div class="job-title">Fastighetsförvaltare</div>
+                        <div class="job-details">AstraZeneca | 2004 - 2005</div>
+                    </div>
+                    
+                    <div class="job-entry">
+                        <div class="job-title">Drifttekniker fgh</div>
+                        <div class="job-details">AstraZeneca | 1995 - 2003</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sida 2 -->
+        <div class="page">
+            <div class="content">
+                <!-- Utbildning -->
+                <div class="section">
+                    <h2 class="section-title">Utbildning</h2>
+                    
+                    <div class="education-entry">
+                        <div class="education-title">Hotel Supervisor</div>
+                        <div class="education-school">YH Akademin</div>
+                        <div class="education-year">2024 - 2025 (pågående)</div>
+                    </div>
+                    
+                    <div class="education-entry">
+                        <div class="education-title">MI-utbildning - MIND Norden</div>
+                        <div class="education-year">2016 | Instruktör: Liria Ortiz</div>
+                    </div>
+                    
+                    <div class="education-entry">
+                        <div class="education-title">ICF Coach</div>
+                        <div class="education-school">Modigt Ledarskap</div>
+                        <div class="education-year">2013 | Instruktör: M Lendahl</div>
+                    </div>
+                    
+                    <div class="education-entry">
+                        <div class="education-title">BSc/Kandidatexamen inom Lantmäteri/Samhällsbyggnad/Bygg- & fastighetsekonomi & juridik</div>
+                        <div class="education-school">KTH</div>
+                        <div class="education-year">2000 - 2003</div>
+                    </div>
+                    
+                    <div class="education-entry">
+                        <div class="education-title">Drifttekniker fastighet</div>
+                        <div class="education-school">KTH</div>
+                        <div class="education-year">1990 - 1992</div>
+                    </div>
+                    
+                    <div class="education-entry">
+                        <div class="education-title">Drift & underhåll fastighet gymnasium</div>
+                        <div class="education-year">1987 - 1990</div>
+                    </div>
+                </div>
+                
+                <!-- Kompetenser och Intressen -->
+                <div class="section">
+                    <h2 class="section-title">Kompetenser & Intressen</h2>
+                    
+                    <div class="two-column">
+                        <div>
+                            <h3 style="color: #6B8FA8; margin-bottom: 15px; font-size: 1.1em;">Huvudsakliga intressen</h3>
+                            <ul class="skills-list">
+                                <li>Mänskliga relationer</li>
+                                <li>Optimering, renovering och underhåll av byggnader</li>
+                                <li>Kost, träning och hälsa</li>
+                                <li>Personlig utveckling</li>
+                                <li>Ledarskap och projektledning</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 style="color: #6B8FA8; margin-bottom: 15px; font-size: 1.1em;">Aktiviteter & Hobbies</h3>
+                            <div class="interests">
+                                <span class="interest-tag">MTB</span>
+                                <span class="interest-tag">SUP</span>
+                                <span class="interest-tag">Yoga</span>
+                                <span class="interest-tag">Kampsport</span>
+                                <span class="interest-tag">Vandring</span>
+                                <span class="interest-tag">Löpning</span>
+                                <span class="interest-tag">Gitarr</span>
+                                <span class="interest-tag">Sjunga</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Övrigt -->
+                <div class="section">
+                    <h2 class="section-title">Övrigt</h2>
+                    <ul class="skills-list">
+                        <li>Gått och assisterat ett flertal olika kurser inom ledarskap, projektledning och personlig utveckling (2004-2025)</li>
+                        <li>Volontär på MIND, Självmordslinjen (2015-2016)</li>
+                        <li>Allmänt händig ingenjör med ett öga för estetik</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
